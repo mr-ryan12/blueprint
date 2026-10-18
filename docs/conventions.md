@@ -7,14 +7,14 @@ These conventions apply as application code and tooling are introduced. Technolo
 - Keep strict checking enabled; fix the cause of a type error instead of weakening compiler settings.
 - Prefer `unknown` with narrowing for uncertain values and caught errors. Use `any` only for an exceptional, documented reason.
 - Do not suppress errors or assert types merely to silence a checker. Explain any necessary exception and its limits.
-- Use explicit type imports and generated types where appropriate. Preserve useful inference; annotate public contracts when it improves clarity. Define separate transport shapes when they differ from database models.
+- Use type-only imports when they improve clarity or are required by tooling/configuration, including inline type modifiers where appropriate. Preserve useful inference and generated framework types; annotate public contracts when it improves clarity. Define separate transport shapes when they differ from database models.
 - Use runtime validation as described in [security](security.md); a type assertion is not validation.
 
 ## Maintainability
 
 - Prefer cohesive modules, clear names, and small changes. Extract shared logic when its meaning is stable; avoid abstractions that only forward calls.
 - Match established repository patterns unless the task explicitly changes them. Do not impose arbitrary file-length or function-parameter limits.
-- Justify new dependencies in the plan or change description, considering existing capabilities, maintenance, and operational cost.
+- Prefer existing platform/framework capabilities when they adequately solve the problem. Add dependencies when they provide clear value, justified in the plan or change description with maintenance and operational cost considered.
 - Introduce version pins and reproducible installation alongside tooling. Formatting belongs to the configured formatter and EditorConfig once available.
 
 ## UI completion

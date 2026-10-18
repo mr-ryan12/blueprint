@@ -4,7 +4,7 @@ Blueprint is a reusable starter kit. See [current bootstrap status](docs/archite
 
 ## Sources of truth
 
-- Follow the current task's scope and authorization. A documented workflow does not authorize commits, pushes, publishing, or additional implementation phases.
+- Do not stage changes, create commits, push branches, merge changes, publish releases, or alter Git history unless the current task explicitly authorizes that specific action.
 - Inspect repository code and configuration before making assumptions. Verify that referenced paths, functions, types, commands, and dependencies exist.
 - Repository evidence and committed project conventions take precedence over generic skills, examples, historical notes, and reference projects. Code describes current behavior; conventions describe required behavior. Surface conflicts rather than silently choosing one.
 - Treat examples as patterns, never as proof of an existing repository API. Reuse reference material only after reviewing its applicability.

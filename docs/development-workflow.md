@@ -33,7 +33,7 @@ These responsibilities apply whether performed by people or agents. Available au
 | `implementation-strategist` | Inspect issue, code and conventions; expose gaps and risks; produce a phased plan without production implementation.                     |
 | `plan-reviewer`             | Independently challenge requirements, assumptions, architecture, sequencing, tests, security and deployment concerns.                    |
 | `fullstack-engineer`        | Implement complete vertical slices through bounded tasks.                                                                                |
-| `task-verifier`             | Independently verify each task's diff, requirements, checks and unintended changes; confirm review findings.                             |
+| `task-verifier`             | Independently verify each task's diff, requirements, checks and unintended changes. When requested, validate findings from other reviewers before implementation changes are made. |
 | `code-reviewer`             | Review the complete change independently of both implementation and task verification.                                                   |
 | `architect`                 | Advise on major architectural decisions, new subsystems and significant refactors or infrastructure.                                     |
 
@@ -42,7 +42,7 @@ These responsibilities apply whether performed by people or agents. Available au
 1. Author the issue, then begin planning in a fresh session/context with durable issue context.
 2. Inspect the repository before planning. Separate requirements from suggestions; identify contradictions, assumptions, edge cases, dependencies, and security, migration and testing implications.
 3. Write meaningful engineering tasks with acceptance criteria and verification. Obtain independent plan review, revise, and obtain approval from the task owner before implementation.
-4. Implement one approved task at a time. Run the applicable checks in [testing](testing.md), obtain independent task verification, and fix confirmed issues. Commit the verified task when authorized before proceeding.
+4. Implement one approved task at a time. Run the applicable checks in [testing](testing.md), obtain independent task verification, and fix confirmed issues. If the current task explicitly authorizes committing, commit the verified task before proceeding; otherwise stop at the verified working-tree state.
 5. Obtain comprehensive code review. Independently verify findings before implementing fixes; repeat relevant checks and review when warranted.
 6. When authorized, push and open a PR. Resolve confirmed automated-review findings, obtain human/team review, and merge through the repository's configured controls.
 
