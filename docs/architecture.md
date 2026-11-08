@@ -2,7 +2,9 @@
 
 ## Current state and intended stack
 
-Current bootstrap status: governance only; application code, dependencies, agents, skills and executable quality checks are not installed. Update this status as capabilities are introduced. The following choices are intended for subsequent approved implementation; package versions, commands and helper APIs are not established yet.
+Current bootstrap status: governance and the initial planning foundation are installed: one shared planning skill, shared strategist/reviewer roles, and thin Codex adapters. Bounded checks have demonstrated native invocation and explicit loading, assigned plan/review writes, fresh review-context configuration, missing-input stops, ordinary-session task preservation, seeded-defect detection, a plan/review/revision handoff, and rejection of invalid, redirected, unauthorized-replacement, and host-denied writes. Independent task verification and completion review are complete; merging remains subject to task-owner approval and repository controls. These observations apply to the tested configuration documented in adapter usage; they do not establish arbitrary context isolation, other-client support, or a path-specific filesystem sandbox.
+
+Application code, dependencies, executable application quality checks, and the remaining agent roles are not installed. The following technology choices are intended for subsequent approved implementation; package versions, commands and helper APIs are not established yet. Reconcile this capability status with actual verification results as the bootstrap advances.
 
 | Area                 | Intended technologies                                                                                            |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -14,6 +16,19 @@ Current bootstrap status: governance only; application code, dependencies, agent
 | Quality and delivery | Vitest, React Testing Library, Playwright, ESLint, Prettier, EditorConfig, GitHub Actions, production Dockerfile |
 
 Deferred design decision: Blueprint should eventually include a minimal, clearly removable example vertical slice demonstrating intended patterns. This may include a simple homepage, a small example domain with one or two Prisma models, representative validation, data access and tests, and a future `yarn blueprint:remove-examples` command. This records design intent, not an implementation task or an available command.
+
+## Planning foundation
+
+Canonical platform-agnostic content lives in `.agents/`; platform syntax and invocation details belong in thin adapters that explicitly read that content. Future adapters must reuse the same shared structure without relocating or copying the methodology or role bodies.
+
+| Location | Responsibility |
+| --- | --- |
+| [Planning skill](../.agents/skills/implementation-planning/SKILL.md) | Investigation methodology and flexible plan/task contract |
+| [Implementation strategist](../.agents/roles/implementation-strategist.md) | Plan creation, revision, and planning-only output ownership |
+| [Plan reviewer](../.agents/roles/plan-reviewer.md) | Independent assessment, review output contract, and context-evidence procedure |
+| [Codex adapter usage](../.codex/README.md) | Native role registration/invocation, explicit loading, tested-client limits, and diagnostics |
+
+Codex is the initial supported adapter path; Claude Code and Kiro adapters are deferred. No skill-catalog wiring or discovery symlink is required. Automatic skill selection must preserve the assigned task and role, and is subject to the [planning-foundation checks](testing.md#planning-foundation-verification). Platform-neutral manual use follows the [workflow](development-workflow.md#using-the-planning-foundation); it does not establish native adapter support. Client-specific evidence and limitations belong in the adapter usage documentation, rather than being treated as shared guarantees.
 
 ## Application boundaries
 
@@ -33,7 +48,7 @@ Deferred design decision: Blueprint should eventually include a minimal, clearly
 
 ## Open decisions
 
-Resolve these in the first reviewed implementation plan:
+Resolve these in the later reviewed application-bootstrap implementation plan, not the Phase 2 planning-foundation plan:
 
 - Feature-oriented versus server-oriented directory organization. Either must preserve the boundaries above; no layout is selected yet.
 - Authentication scope and strategy, including whether it is an optional starter capability.

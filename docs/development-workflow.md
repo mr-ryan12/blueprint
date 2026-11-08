@@ -37,6 +37,16 @@ These responsibilities apply whether performed by people or agents. Available au
 | `code-reviewer`             | Review the complete change independently of both implementation and task verification.                                                   |
 | `architect`                 | Advise on major architectural decisions, new subsystems and significant refactors or infrastructure.                                     |
 
+## Using the planning foundation
+
+Use the [implementation-planning skill](../.agents/skills/implementation-planning/SKILL.md) for methodology and the plan/task output contract. The shared [implementation strategist](../.agents/roles/implementation-strategist.md) owns plan creation and revisions; the [plan reviewer](../.agents/roles/plan-reviewer.md) owns the independent assessment and its review artifact. Native platform invocation and tested-client limitations are documented in [adapter usage](../.codex/README.md).
+
+For manual role loading, start a session for the assigned role and explicitly read its shared definition, the skill, AGENTS.md, and their required canonical references. Supply the source issue, repository root/access, relevant durable decisions, current authorization, and exact assigned output path under `workspace/`. Supply the current plan for a review. When repository state matters, an authorized coordinator/verifier provides pre-run branch, HEAD, and working-tree evidence with provenance and freshness under the skill's contract; the roles do not run Git commands.
+
+Use durable artifacts for the handoff: issue and relevant context → strategist plan → independent review → strategist revision and finding disposition → re-review where warranted → task-owner approval. Each role writes its assigned artifact directly; the reviewer must not modify the plan. Preserve existing outputs unless replacement is authorized, and follow the shared contracts for missing inputs or denied writes. Local artifact organization remains as described above; do not require private scratch notes or a saved authoring conversation as review input.
+
+Apply the reviewer's shared [independent-review procedure](../.agents/roles/plan-reviewer.md#independent-review-procedure) and evidence standard for both native and manual review. That definition owns fresh-session inputs, permitted isolated-child paths, context evidence, and fallback details. Manual use or a role label alone does not prove native support. The approval gates below still apply, including separate-session or human review where automation is unavailable.
+
 ## Planning and implementation
 
 1. Author the issue, then begin planning in a fresh session/context with durable issue context.
