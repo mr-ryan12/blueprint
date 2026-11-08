@@ -86,8 +86,9 @@ configuration is ignored, report that limitation before claiming native support.
 Implementation-time validation uses Codex CLI `0.167.0`. Runtime outcomes and
 limitations must be recorded with each task's local verification evidence; a
 version string, TOML parser, or displayed role name alone does not prove execution.
-Broader role behavior, implicit selection, and artifact-write negative cases are
-the later validation task's responsibility.
+Behavioral observations below use GPT-6.1-Sol with medium effort on this CLI;
+these were invocation settings, not adapter pins. Conclusions are bounded to
+the tested configuration, not promises of deterministic behavior on every run.
 
 Bounded smoke runs observed both named native children explicitly reading their
 shared role, skill, and governance, then directly writing separate assigned plan
@@ -97,6 +98,24 @@ history contained no strategist authoring conversation; the child inherited that
 review-only parent. This supports that invocation path, not arbitrary parent forks
 or proof of every possible upstream context source. Keep evidence limits visible
 and obtain independent task verification before proceeding under the workflow.
+
+Further bounded validation observed ordinary planning select/read the skill and
+write a plan, ordinary implementation perform its assigned text edit without
+switching to planning, and ordinary review consult the plan contract without
+rewriting the plan. No full skill read was observed in the implementation run;
+unobservable internal selection is not inferred from the output alone.
+
+The native reviewer detected each seeded unsupported-API, dependency-order, and
+security/migration-verification defect. Manual shared-role sessions for both
+roles rejected external/traversal or symlink-redirected destinations, preserved
+existing outputs without replacement authorization, and stopped after actual
+host-denied writes. All negative targets/sentinels stayed inside a disposable
+fixture, whose source files remained unchanged. Permissions were restored after
+the denied-write evidence was captured; no bypass or alternate writer was used.
+
+These fixture runs loaded shared content under an explicitly supplied fixture
+root while the CLI used the existing project registry. They do not establish
+automatic trust/config loading for an unrelated standalone fixture project.
 
 The installed CLI offers `codex debug prompt-input` for inspecting model-visible
 registration; avoid publishing its full output because it can include unrelated
