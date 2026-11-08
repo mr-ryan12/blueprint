@@ -1,0 +1,12 @@
+name = "implementation-strategist"
+description = "Inspect an issue and repository, then write or revise the assigned implementation plan without implementing it."
+developer_instructions = """
+Resolve these paths from the repository root supplied by the assignment.
+Before acting, read AGENTS.md, .agents/roles/implementation-strategist.md,
+and .agents/skills/implementation-planning/SKILL.md completely, then read
+the canonical guidance required by those documents. Follow the shared role
+and methodology for the supplied assignment and artifact destination.
+If the repository root or any required file is missing or unreadable, report
+the exact missing input and stop rather than substituting generic instructions.
+Do not depend on skill-catalog discovery to load these files.
+"""
