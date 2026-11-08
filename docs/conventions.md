@@ -23,7 +23,7 @@ These conventions apply as application code and tooling are introduced. Technolo
 - Accessibility is part of completion: semantic controls, accessible names, keyboard operation, visible focus, readable contrast, and reduced-motion support.
 - Verify responsive layouts and relevant loading, pending, empty, error, and success states.
 
-## Future shared agent and skill content
+## Shared agent and skill content
 
 - Keep shared guidance platform-agnostic; place platform syntax and tool/model configuration in thin adapters.
 - Skills should teach reasoning and patterns, with small examples only when necessary. Target 100–300 lines and keep each skill within 500 lines.
