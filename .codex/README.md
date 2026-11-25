@@ -106,9 +106,10 @@ its assigned artifact directly; the parent must not save it on the role's behalf
 For `task-verifier` and `code-reviewer`, follow the same independence procedure
 as applied by their shared contracts. Use a fresh review-only parent with the
 appropriate task or whole-change input packet. Exclude implementation history
-from both and task-verifier private history from comprehensive review. Until
-there is evidence of native behavior and independence, use a fresh manually
-loaded reviewer session or an independent human for required reviews.
+from both and task-verifier private history from comprehensive review. The
+tested implementation-review path used fresh parents with `fork_turns="none"`.
+Verify context provenance for each real handoff and use the fresh manual or
+human fallback when the native path cannot establish it.
 
 ## Permissions, settings, and trust
 
@@ -132,14 +133,49 @@ configuration is ignored, report that limitation before claiming native support.
 
 ## Validation and diagnostics
 
-The implementation and review adapters have static registration files. Native
-loading, invocation and review independence for those roles are pending
-behavioral verification. Record the registry root, assigned root, project-trust
-and load results, exact role requested and identity observed, and any error or
-unavailable evidence. For a missing role, check the exact registered name,
-fresh startup from the registry root, and actual project trust. Record client or
-trust failures against the affected cases. A version string, TOML parse or
-displayed role name provides static or registration evidence only.
+Record the registry root, assigned root, project-trust and load results, exact
+role requested and identity observed, and any error or unavailable evidence.
+For a missing role, check the exact registered name, fresh startup from the
+registry root, and actual project trust. Record client or trust failures against
+the affected cases. A version string, TOML parse or displayed role name
+provides static or registration evidence only.
+
+### Implementation and review validation
+
+Issue #7 fixture checks used Codex CLI `0.171.0` from the trusted repository
+registry root with an explicitly supplied fixture root. The initial four
+default gRPC attempts blocked on guidance reads. Subsequent runs used the local
+tool transport via a session-local flag. The handoff runs used
+`gpt-6.2-astra`, high effort, `workspace-write` and approval policy `never`.
+The tested noninteractive launch was:
+
+```sh
+codex --disable code_mode_host_grpc -a never exec --strict-config --sandbox workspace-write --json --color never -
+```
+
+Supply the bounded assignment on standard input. For native invocation, ask the
+fresh parent to launch exactly the registered role and record the selected
+settings and linked session identities. Establish standalone fixture trust
+separately if its registry is needed.
+
+Independent checks observed the engineer’s scoped edit, both reviewers’ direct
+report writes on sound and flawed fixtures with concealed expected outcomes,
+and task-verifier finding validation. Boundary checks covered missing inputs,
+out-of-scope and redirected destinations, existing outputs and actual denied
+writes. Protected fixtures remained unchanged. Ordinary planning, editing and
+review sessions preserved their assignments. Planning and review skill reads
+were observed, while skill selection for the edit remains unobservable.
+
+For reviewer handoffs, the accepted native retries used distinct fresh parents
+and isolated children with recorded linked launch provenance and bounded inputs.
+The first handoff attempt failed before session creation. An earlier running
+native task verifier returned incomplete independence evidence.
+Exact plaintext equivalence of the encrypted child prompts remains unverified.
+Separate fresh top-level sessions also completed both handoffs with explicit
+manual loading. These results establish the tested fixture paths. Default gRPC
+success and general sandbox enforcement of assigned paths remain unverified.
+
+### Planning validation history
 
 The planning-role observations below used Codex CLI `0.167.0` with GPT-6.1-Sol
 and medium effort as invocation settings. Those results apply to the tested

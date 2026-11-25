@@ -58,6 +58,18 @@ Apply the reviewer's shared [independent-review procedure](../.agents/roles/plan
 
 If authorization ends at a working-tree review, stop there. If an independent reviewer is unavailable, report the missing review and seek human review; do not describe self-review as independent verification.
 
+For implementation, task verification and comprehensive review, use the [adapter assignment instructions](../.codex/README.md#implementation-and-review-assignments) and [independent reviewer invocation](../.codex/README.md#independent-reviewer-invocation). When the native path is unavailable or the review context cannot be established, use a fresh manually loaded reviewer session or an independent human.
+
+## Solo-maintainer signoff
+
+While Ryan is the sole contributor, merging requires passing applicable CI, independent verification of each task, independent comprehensive review of the complete candidate, and Ryan’s recorded signoff. Capture the reviewed candidate and evidence with the signoff. A second human GitHub approval is unnecessary under this policy. Revisit the policy when collaborators join. Independent review and recorded signoff are workflow requirements. Verify which controls GitHub enforces before relying on them.
+
+For Issue #7’s Delivery A only, if an authorized inventory establishes that no applicable CI job exists, record CI as unavailable, pass applicable local checks, complete both independent review gates, and obtain Ryan’s recorded exception at signoff. Failed, pending or unobserved CI provides no basis for that exception. Record the inventory and any exception with Delivery A evidence. Before closing Issue #7, record Ryan’s explicit disposition of any unmet required native acceptance. The child’s acceptance remains separate from overall bootstrap acceptance in Issue #6.
+
+## Application shipping gate
+
+Bootstrap acceptance can precede authentication. Before shipping the application, complete a separately planned, implemented and independently verified authentication feature. Its review must cover authentication and server-side authorization for protected operations under the [security requirements](security.md#trust-boundaries).
+
 ## Review findings
 
 | Severity | Meaning                                                                         |
@@ -83,4 +95,4 @@ When authoring the bootstrap issue, explicitly include or defer each remaining i
 - Automated GitHub review and branch-protection configuration; assign their setup rather than assuming they already exist.
 - Remaining skill areas: TypeScript, React Router framework mode, Prisma/PostgreSQL, application security, testing, frontend design/UI engineering, system design, DevOps, Mermaid diagrams, and GitHub work management.
 
-Until the relevant agents exist, use separate reviewer sessions or human review. Application checks become required as the corresponding tooling is introduced; current documentation checks are defined in [testing](testing.md).
+Application checks become required as the corresponding tooling is introduced. Current documentation checks are defined in [testing](testing.md#current-bootstrap-checks).
