@@ -153,6 +153,12 @@ The tested noninteractive launch was:
 codex --disable code_mode_host_grpc -a never exec --strict-config --sandbox workspace-write --json --color never -
 ```
 
+On the test host, the first reviewer handoff failed before session creation.
+The outer sandbox blocked in-process app-server client initialization with
+`Operation not permitted`. The separately authorized outer launch started
+successfully with `--sandbox workspace-write` and `-a never` still in effect.
+The gRPC guidance-read stalls occurred after startup.
+
 Supply the bounded assignment on standard input. For native invocation, ask the
 fresh parent to launch exactly the registered role and record the selected
 settings and linked session identities. Establish standalone fixture trust
@@ -168,8 +174,7 @@ were observed, while skill selection for the edit remains unobservable.
 
 For reviewer handoffs, the accepted native retries used distinct fresh parents
 and isolated children with recorded linked launch provenance and bounded inputs.
-The first handoff attempt failed before session creation. An earlier running
-native task verifier returned incomplete independence evidence.
+An earlier running native task verifier returned incomplete independence evidence.
 Exact plaintext equivalence of the encrypted child prompts remains unverified.
 Separate fresh top-level sessions also completed both handoffs with explicit
 manual loading. These results establish the tested fixture paths. Default gRPC
