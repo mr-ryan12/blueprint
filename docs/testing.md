@@ -20,6 +20,14 @@ Bootstrap validation uses recorded manual sessions, static document/schema inspe
 
 Reconcile capability status and verification descriptions with the final recorded outcomes after behavioral validation and corrections. Preserve evidence of failed or unavailable scenarios and leave the relevant capability unverified until supported. Optional external validators may be unavailable; record that separately from checks actually performed with available tools. Available documentation/static checks and native smoke checks do not establish application typecheck, lint, test, build, CI, or database verification; those require the corresponding tooling below.
 
+## Implementation and review foundation verification
+
+Apply the static, explicit-loading, ordinary-session and write-boundary checks above to the implementation and review roles as well. Size the behavioral checks to the claim and use disposable fixtures with isolated roots, protected inputs and explicit output paths. Compare before/after contents and tool activity. Record separately whether a role stopped on instruction or actually attempted a write and received a host denial.
+
+- Exercise the engineer’s assigned edit and check. Give the task verifier a complete task delta and give the code reviewer the complete baseline-to-candidate change, including unchanged callers relevant to the review. Use sound and flawed samples with neutral paths and inputs that conceal the expected verdict. Keep scoring evidence outside reviewer context.
+- Check direct ownership of each report, the accuracy of findings and finding validation, and the provenance of independent reviewer launches. Use the [reviewer invocation instructions](../.codex/README.md#independent-reviewer-invocation) for bounded inputs and fallback. Record the result of fallback separately from blocked native coverage.
+- Retain initial failures and independently checked reruns with their candidate and configuration. Reconcile documentation with those results and the [tested-client limits](../.codex/README.md#implementation-and-review-validation).
+
 ## Application verification once tooling exists
 
 - Each implementation task runs typecheck, lint and relevant unit/integration tests. Verify formatting and build behavior when affected; run end-to-end checks for affected critical flows.
