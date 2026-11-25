@@ -62,9 +62,9 @@ For implementation, task verification and comprehensive review, use the [adapter
 
 ## Solo-maintainer signoff
 
-While Ryan is the sole contributor, merging requires passing applicable CI, independent verification of each task, independent comprehensive review of the complete candidate, and Ryan’s recorded signoff. Capture the reviewed candidate and evidence with the signoff. A second human GitHub approval is unnecessary under this policy. Revisit the policy when collaborators join. Independent review and recorded signoff are workflow requirements. Verify which controls GitHub enforces before relying on them.
+While the maintainer is the sole contributor, merging requires passing applicable CI, independent verification of each task, independent comprehensive review of the complete candidate, and the maintainer recorded signoff. Capture the reviewed candidate and evidence with the signoff. A second human GitHub approval is unnecessary under this policy. Revisit the policy when collaborators join. Independent review and recorded signoff are workflow requirements. Verify which controls GitHub enforces before relying on them.
 
-For Issue #7’s Delivery A only, if an authorized inventory establishes that no applicable CI job exists, record CI as unavailable, pass applicable local checks, complete both independent review gates, and obtain Ryan’s recorded exception at signoff. Failed, pending or unobserved CI provides no basis for that exception. Record the inventory and any exception with Delivery A evidence. Before closing Issue #7, record Ryan’s explicit disposition of any unmet required native acceptance. The child’s acceptance remains separate from overall bootstrap acceptance in Issue #6.
+For Issue #7’s Delivery A only, if an authorized inventory establishes that no applicable CI job exists, record CI as unavailable, pass applicable local checks, complete both independent review gates, and obtain the maintainer recorded exception at signoff. Failed, pending or unobserved CI provides no basis for that exception. Record the inventory and any exception with Delivery A evidence. Before closing Issue #7, record the maintainer explicit disposition of any unmet required native acceptance. The child’s acceptance remains separate from overall bootstrap acceptance in Issue #6.
 
 ## Application shipping gate
 

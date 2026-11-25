@@ -57,7 +57,7 @@ Use a feature-oriented layout. These locations are approved for subsequent appli
 - Use Docker primarily for production containerization. Keep deployment configuration portable; Railway is a likely initial target, not an application dependency.
 - Review schema changes and generated migration SQL deliberately. Plan backfills, rollout compatibility and recovery before applying migrations to shared data; do not use schema push as a shared/production migration strategy.
 - Production migrations belong in a separate manually triggered GitHub Actions workflow (`workflow_dispatch`): validate the target environment, run `prisma migrate deploy`, and report the result. Do not run migrations from every application instance. Environment approval gates can be added later.
-- Codex automatic GitHub PR review is in bootstrap scope. Ryan owns configuration and verification of remote controls, including CI and branch protection. Their enabled state remains unverified. GitHub MCP is deferred. Follow the [workflow](development-workflow.md#solo-maintainer-signoff) for delivery signoff.
+- Codex automatic GitHub PR review is in bootstrap scope. The maintainer owns configuration and verification of remote controls, including CI and branch protection. Their enabled state remains unverified. GitHub MCP is deferred. Follow the [workflow](development-workflow.md#solo-maintainer-signoff) for delivery signoff.
 
 ## Authentication
 
